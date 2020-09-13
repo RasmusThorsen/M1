@@ -8,7 +8,14 @@ export class IndexController {
   @Get()
   @Render('index')
   async root() {
-    const value = await this.gpioService.read(16);
+
+    this.gpioService.watch(27, (err, value) => {
+      if(err) {
+        console.log(err);
+      } else {
+        this.gpioService.write(17, value);
+      }
+    });
 
     return {
         message: "hello world",
