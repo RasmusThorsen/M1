@@ -9,14 +9,6 @@ export class IndexController {
   @Render('index')
   async root() {
 
-    this.gpioService.watch(27, (err, value) => {
-      if(err) {
-        console.log(err);
-      } else {
-        this.gpioService.write(17, value);
-      }
-    });
-
     return {
         message: "hello world",
         function: () => console.log("hello")

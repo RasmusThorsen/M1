@@ -3,13 +3,22 @@ import { BinaryValue, Direction, Edge, Gpio, ValueCallback } from "onoff";
 
 @Injectable()
 export class GpioService {
-    gpios: {pin: number, gpio: Gpio}[] = [];
-    
+    gpios: { pin: number, gpio: Gpio }[] = [];
+
     constructor() {
         // LED
         this.register(17, 'out');
         // Btn
         this.register(27, 'in', 'both');
+
+        this.watch(27, (err, value) => {
+            console.log("Watch called");
+            if (err) {
+                console.log(err);
+            } else {
+                this.write(17, value);
+            }
+        });
     }
 
     register(pin: number, direction: Direction, edge?: Edge) {
