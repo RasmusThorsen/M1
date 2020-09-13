@@ -10,7 +10,7 @@ export class IndexController {
   async root() {
 
     return {
-        message: "hello world",
+        message: this.gpioService.read(17),
         function: () => console.log("hello")
      };
   }
