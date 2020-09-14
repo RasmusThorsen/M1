@@ -16,6 +16,7 @@ The solution is developed by group Bravo:
  sudo docker build -t milestone1 .
  sudo docker run -p 3000:3000 -d --privileged milestone1
  ```
+It might take a while to build the first time, likewise it takes a couple of seconds before the server is ready after the build is done.
 
  The image it self is based upon the image `rallethor:milestone1`, which contains:
   - arm32v6/node:apline
