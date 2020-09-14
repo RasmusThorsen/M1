@@ -12,7 +12,7 @@ export class IndexController {
   @Get()
   @Render('index')
   async root() {
-    const dht11 = this.dhtService.read(12);
+    const dht11 = await this.dhtService.read(12);
     console.log(dht11.temperature);
 
     return {

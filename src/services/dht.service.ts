@@ -1,19 +1,15 @@
 import { Injectable } from "@nestjs/common";
 
-var sensor = require("node-dht-sensor");
+var sensor = require("node-dht-sensor").promises;
+
+export interface Dht11Reading {
+    humidity: number,
+    temperature: number
+}
 
 @Injectable()
 export class DhtService {
-    read(pin: number): {temperature: number, humidity: number} {
-        return sensor.read(11, pin, function (err, temperature, humidity) {
-            if (!err) {
-                return {
-                    temperature,
-                    humidity
-                }
-            } else {
-                console.log(err);
-            }
-        });
+    async read(pin: number): Promise<Dht11Reading> {
+        return await sensor.read(11, pin);
     }
 }
