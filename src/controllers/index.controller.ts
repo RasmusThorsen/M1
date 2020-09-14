@@ -21,9 +21,10 @@ export class IndexController {
       hum: dht11.humidity,
       distance,
       ledToggle: () => {
-        this.gpioService.write(4, this.flip(this.gpioService.read(4)))
+        const value = this.flip(this.gpioService.read(4))
+        this.gpioService.write(4, value)
 
-        return this.gpioService.read(4);
+        return value;
       }
     };
   }
