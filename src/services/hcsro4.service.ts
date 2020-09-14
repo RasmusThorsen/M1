@@ -18,11 +18,11 @@ export class HCSRO4Service {
         this.gpioService.write(23, 0);
 
         while(this.gpioService.read(24) == 0) {
-            pulseStart = new Date().getTime();
+            pulseStart = new Date().getTime() * 1000;
         }
 
         while(this.gpioService.read(24) == 1) {
-            pulseEnd = new Date().getTime();
+            pulseEnd = new Date().getTime() * 1000;
         }
 
         const pulseDuration = pulseEnd - pulseStart;

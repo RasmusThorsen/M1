@@ -1,6 +1,6 @@
 # Commands:
-# docker build -t milestone1 .
-# docker run -p 3000:3000 -d --privileged milestone1
+# sudo docker build -t milestone1 .
+# sudo docker run -p 3000:3000 -d --privileged milestone1
 
 # Image containing:
 #   - arm32v6/node:apline
