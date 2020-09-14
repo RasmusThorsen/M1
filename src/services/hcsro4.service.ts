@@ -8,7 +8,7 @@ export class HCSRO4Service {
         this.gpioService.register(24, 'in'); // ECHO
     }
 
-    async read() {
+    async read(): Promise<number> {
         let pulseStart = 0, pulseEnd = 0;
 
         this.gpioService.write(23, 0);
