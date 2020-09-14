@@ -5,7 +5,9 @@ import { BinaryValue, Direction, Edge, Gpio, ValueCallback } from "onoff";
 export class GpioService {
     gpios: { pin: number, gpio: Gpio }[] = [];
 
-    constructor() { }
+    constructor() { 
+        this.register(4, 'out');
+    }
 
     register(pin: number, direction: Direction, edge?: Edge) {
         this.gpios.push({

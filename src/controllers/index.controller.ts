@@ -17,9 +17,17 @@ export class IndexController {
     console.log(`Distance: ${distance}`);
 
     return {
-        temp:dht11.temperature,
-        hum: dht11.humidity,
-        distance
-     };
+      temp: dht11.temperature,
+      hum: dht11.humidity,
+      distance,
+      ledToggle: () => {
+        this.gpioService.write(4, this.flip(this.gpioService.read(4)))
+      }
+    };
+  }
+
+  flip(x: number) {
+    if (x == 1) return 0;
+    else if (x == 0) return 1;
   }
 }
