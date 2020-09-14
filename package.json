@@ -15,10 +15,12 @@
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
     "hbs": "^4.1.1",
+    "node-addon-api": "^3.0.0",
     "onoff": "6.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.5.4"
+    "rxjs": "^6.5.4",
+    "node-dht-sensor": "0.4.3"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
