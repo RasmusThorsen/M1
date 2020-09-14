@@ -22,6 +22,8 @@ export class IndexController {
       distance,
       ledToggle: () => {
         this.gpioService.write(4, this.flip(this.gpioService.read(4)))
+
+        return this.gpioService.read(4);
       }
     };
   }
