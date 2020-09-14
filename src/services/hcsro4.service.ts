@@ -12,21 +12,21 @@ export class HCSRO4Service {
         let pulseStart = 0, pulseEnd = 0;
 
         this.gpioService.write(23, 0);
-        await this.sleep(2000);
+        await this.sleep(2000); // Let the sensor stabilize
         this.gpioService.write(23, 1);
         await this.sleep(1)
         this.gpioService.write(23, 0);
 
         while(this.gpioService.read(24) == 0) {
-            pulseStart = new Date().getTime() * 1000;
+            pulseStart = new Date().getTime();
         }
 
         while(this.gpioService.read(24) == 1) {
-            pulseEnd = new Date().getTime() * 1000;
+            pulseEnd = new Date().getTime();
         }
 
         const pulseDuration = pulseEnd - pulseStart;
-        const distance = Math.round(pulseDuration * 17150);
+        const distance = Math.round(pulseDuration * 17.150);
 
         return distance;
     }
